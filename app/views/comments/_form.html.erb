@@ -1,0 +1,16 @@
+<%= form_with(model: [ @article, @article.comments.build ]) do |form| %>
+	<table class="table">
+		<tr>
+			<td><%= form.label :commenter %></td>
+			<td><%= form.text_field :commenter, {:class => 'form-control' } %></td>
+		</tr>
+		<tr>
+			<td><%= form.label :body %></td>
+			<td><%= form.text_area :body, {:class => 'form-control' } %></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><%= form.submit 'Submit Comment', :class => "btn btn-primary" %></td>
+		</tr>
+	</table>
+<% end %>

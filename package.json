@@ -1,0 +1,7 @@
+{
+  "name": "blog",
+  "private": true,
+  "dependencies": {
+    "jquery-ujs": "^1.2.2"
+  }
+}

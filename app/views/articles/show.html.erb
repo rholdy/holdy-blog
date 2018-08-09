@@ -1,0 +1,57 @@
+<div class="container">
+<p>
+	<% if flash[:error].present? %>
+  		<span class='flash-error'><%= flash[:error] %></span>
+	<% end %>
+	<% if flash[:notice].present? %>
+  		<span class='flash-notice'><%= flash[:notice] %></span>
+	<% end %>
+	<% if flash[:success].present? %>
+  		<span class='flash-success'><%= flash[:success] %></span>
+	<% end %>
+</p>
+
+
+	<table class="table borderless show-article">
+		<tr>
+			<td><h2><%= @article.title %></h2></td><td></td>
+		</tr>
+		<tr>
+			<td><strong>Content:</strong></td><td></td>
+		</tr>
+		<tr>
+			<td colspan="2"><%= @article.text %></td>
+		</tr>
+	</table>
+
+
+<p class="divider"> <hr> </p> 
+
+<table>
+	<tr>
+		<td>
+			<%= link_to 'Edit post', edit_article_path(@article), :class => "btn btn-success" %>
+		</td>
+		<td>
+			<%= link_to 'Delete post', article_path(@article),
+					method: :delete,
+					data: { confirm: 'Are you sure you want to delete this post?' }, :class => "btn btn-danger" %>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td><%= link_to 'View all posts', articles_path %></td>
+	</tr>
+</table>
+
+<p class="divider"> <hr> </p> 
+
+<h2>Comments</h2>
+
+<%= render @article.comments %>
+
+<h2>Add a Comment</h2>
+<%= render 'comments/form' %>
+</div>
